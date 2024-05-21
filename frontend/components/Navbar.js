@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 const Navbar = (props) => {
   const toggleMode = e => {
-    e.preventDefault()
-    props.setDarkMode(!props.darkMode)
-  }
+    e.preventDefault();
+    props.setDarkMode(!props.darkMode);
+  };
 
   return (
     <nav className="navbar">
@@ -19,7 +19,7 @@ const Navbar = (props) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

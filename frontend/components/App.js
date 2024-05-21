@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react"
-import data from '../data/data.json'
-import axios from "axios"
+import React, { useState, useEffect } from "react";
+import data from '../data/data.json';
+import axios from "axios";
 
-import Charts from "./Charts"
-import Navbar from "./Navbar"
+import Charts from "./Charts";
+import Navbar from "./Navbar";
+import useDarkMode from "../hooks/useDarkMode";
 
 const App = () => {
-  const [coinData, setCoinData] = useState([])
-  const [darkMode, setDarkMode] = useState(false)
+  const [coinData, setCoinData] = useState([]);
+  const [darkMode, setDarkMode] = useDarkMode();
 
   useEffect(() => {
     axios
@@ -22,12 +23,13 @@ const App = () => {
         setCoinData(data)
       })
   }, [])
+  
   return (
     <div className={darkMode ? "dark-mode App" : "App"}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <Charts coinData={coinData} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
